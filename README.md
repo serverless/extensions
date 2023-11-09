@@ -1,6 +1,6 @@
 # EXT
 
-Use and make Developer Experiences that can provision and automate cloud infrastructure use-cases, like:
+Use and make Developer Experiences that provision cloud infrastructure use-cases, like:
 
 * Static websites on AWS S3
 * Real-time data processing pipelines on AWS Kinesis
