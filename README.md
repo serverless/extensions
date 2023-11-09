@@ -1,6 +1,6 @@
 # EXT
 
-Use, build and share Developer Experiences that provision cloud infrastructure use-cases, like:
+Use, make and share Developer Experiences that provision cloud infrastructure use-cases, like:
 
 * Static websites on AWS S3
 * Real-time data processing pipelines on AWS Kinesis
