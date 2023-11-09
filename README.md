@@ -1,12 +1,14 @@
 # EXT
 
-**Run, Build & Share Developer Experiences.**
+Use and make Developer Experiences that can provision and automate cloud infrastructure use-cases, like:
 
-EXT enables you to use and make Developer Experiences that can provision and automate cloud infrastructure use-cases. For example, you can use EXT to deploy _a static website to AWS S3_, _a real-time data processing pipeline to AWS Kinesis_, or _a MongoDB Atlas Database_. Consider EXT as the natural evolution of Infrastructure-as-Code.
+* Static website to AWS S3
+* Real-time data processing pipeline to AWS Kinesis
+* MongoDB Atlas Database
 
-EXT runs Extensions. An **Extension** is automation logic for a specific use-case, encapsulated in a container. Thanks to containerization, you can create or use automation logic written in any language, and compose them together via their inputs and outputs.
+Consider EXT as the natural evolution of Infrastructure-as-Code.
 
-Follow this guide to build and run your first Extension via EXT.
+EXT runs **Extensions**. An Extension is automation logic for a specific use-case, encapsulated in a container. Thanks to containerization, you can create or use Extensions written in any language, and compose them together via their inputs and outputs.
 
 _This initial release is for internal Serverless Inc teammates only. The experience is currently limited to building and running your own Extension._
 
