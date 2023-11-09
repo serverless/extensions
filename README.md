@@ -2,9 +2,9 @@
 
 Use and make Developer Experiences that can provision and automate cloud infrastructure use-cases, like:
 
-* Static website to AWS S3
-* Real-time data processing pipeline to AWS Kinesis
-* MongoDB Atlas Database
+* Static websites on AWS S3
+* Real-time data processing pipelines on AWS Kinesis
+* MongoDB Atlas Databases
 
 Consider EXT as the natural evolution of Infrastructure-as-Code.
 
