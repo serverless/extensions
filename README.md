@@ -2,7 +2,7 @@
 
 **Run, Build & Share Developer Experiences.**
 
-EXT enables you to use and make Developer Experiences that can provision and automate infinite application use-cases. For example, you can use EXT to deploy a static website to AWS S3, a real-time data processing pipeline to AWS Kinesis, or a MongoDB Atlas Database. Consider EXT as the natural evolution of Infrastructure-as-Code.
+EXT enables you to use and make Developer Experiences that can provision and automate cloud infrastructure use-cases. For example, you can use EXT to deploy _a static website to AWS S3_, _a real-time data processing pipeline to AWS Kinesis_, or _a MongoDB Atlas Database_. Consider EXT as the natural evolution of Infrastructure-as-Code.
 
 EXT runs Extensions. An **Extension** is automation logic for a specific use-case, encapsulated in a container. Thanks to containerization, you can create or use automation logic written in any language, and compose them together via their inputs and outputs.
 
