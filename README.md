@@ -92,4 +92,4 @@ npx ext info
 
 You've successfully run multiple Actions of an Extension!
 
-Now, start modifying the Extension Template. Remember, after every change, you must re-build the container `npx ext developer build`. We are aware this takes a few seconds and have plans to speed this up soon.
+Now, start modifying the Extension Template. The Template is filled with useful examples and comments. Remember, after every change, you must re-build the container `npx ext developer build`. We are aware this takes a few seconds and have plans to speed this up soon.
