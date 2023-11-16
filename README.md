@@ -11,8 +11,6 @@ Consider EXT as a natural evolution of Infrastructure-as-Code.
 
 EXT runs **Extensions**. An Extension is logic for provisioning and automating use-cases, encapsulated in a container. Thanks to containerization, you can use and create Extensions written in any language, and compose them together via their inputs and outputs.
 
-_This initial release is for internal Serverless Inc teammates only. The experience is currently limited to building and running your own Extension._
-
 # Quick-Start
 
 EXT requires Docker. Install [Docker Desktop](https://www.docker.com/products/docker-desktop/),if you don't have it already.
