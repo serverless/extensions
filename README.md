@@ -21,7 +21,8 @@ service: my-service
 website:
   extension: aws-s3-website@1.0.0
   input:
-    
+    awsS3bucketName: 'website'
+```
   
 
 # Quick-Start
