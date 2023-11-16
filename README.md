@@ -7,9 +7,7 @@ Use / make / monetize developer experiences that provision cloud use-cases, like
 - AWS Kinesis Streaming Data Pipelines
 - MongoDB Atlas Databases
 
-EXT is an evolution of "Infrastructure-as-Code", offering deployment of use-cases beyond individual cloud resources, new types of automation, and revenue sharing for all Extension makers to ensure long-term viability.
-
-EXT runs Extensions. An Extension is logic for provisioning and automating a use-case, encapsulated in a container. Thanks to containerization, you can use and create Extensions written in any language, and compose them together via their inputs and outputs.
+EXT runs Extensions. An Extension is logic for provisioning and automating a use-case, encapsulated in a container. Thanks to containerization, you can _run_ and _create_ Extensions written in any language, and compose them together via their inputs and outputs.
 
 Currently, Extensions can be configured in `ext.yml`, like this:
 
@@ -22,8 +20,11 @@ website:
   input:
     awsS3bucketName: 'website'
 ```
-  
 
+EXT is an evolution of "Infrastructure-as-Code", offering deployment of use-cases beyond individual cloud resources, new types of automation, and revenue sharing for all Extension makers to ensure long-term viability.
+
+EXT will be included within the upcoming [Serverless Framework V.4](https://github.com/serverless/serverless), allowing you to run Extensions with Serverless Framework. The purpose of this stand-alone project is to enable you to build and run Extensions today, before V.4 comes out.
+  
 # Quick-Start
 
 EXT requires Docker. Install [Docker Desktop](https://www.docker.com/products/docker-desktop/),if you don't have it already.
