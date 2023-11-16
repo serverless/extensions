@@ -24,7 +24,7 @@ website:
 
 EXT is an evolution of "Infrastructure-as-Code", offering deployment of use-cases beyond individual cloud resources, new types of automation, and revenue sharing for all Extension makers to ensure long-term viability.
 
-EXT will be included within the upcoming [Serverless Framework V.4](https://github.com/serverless/serverless), allowing you to run Extensions with Serverless Framework. The purpose of this stand-alone project is to enable you to build and run Extensions today, before V.4 comes out.
+EXT will be included within the upcoming [Serverless Framework V.4](https://github.com/serverless/serverless), enabling its users to run Extensions with the Framework. The purpose of this stand-alone project is to enable you to build and run Extensions today, before V.4 comes out.
   
 # Quick-Start
 
