@@ -1,5 +1,4 @@
-![github-readme-light](https://github.com/serverless/ext/assets/2752551/8b8e86d5-a1d8-4b92-8284-89b2ab1958f3)
-
+![github-readme-light](https://github.com/serverless/EXT/assets/2752551/778b80a7-7d71-4122-8c73-cd184ff4a721)
 
 # Overview
 Use / make / monetize developer experiences that provision cloud use-cases, like:
