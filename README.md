@@ -1,4 +1,5 @@
-![ext-github-readme-2](https://github.com/serverless/ext/assets/2752551/a30f6e0b-9004-48e3-b268-a377ee1c6d80)
+![ext-github-readme-3](https://github.com/serverless/ext/assets/2752551/0bd53868-d50f-497a-8161-9b53bb211203)
+
 
 Use / make / monetize developer extensions that provision cloud use-cases, like:
 
