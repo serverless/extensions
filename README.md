@@ -81,10 +81,10 @@ Extensions should also come with an `info` Action, which shows essential State. 
 ext info
 ```
 
-Lastly, Extensions (if provisioning something) should come with a `destroy` Action. Run it:
+Lastly, Extensions (if provisioning something) should come with a `remove` Action. Run it:
 
 ```
-ext destroy
+ext remove
 ```
 
 Verify State was removed. You should see `undefined` values:
