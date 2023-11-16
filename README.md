@@ -1,4 +1,4 @@
-<video src="https://assets.serverless-extras.com/general/ext-github-readme-1.mp4" width="100%" height="auto" controls></video>
+![ext-github-readme-1](https://github.com/serverless/ext/assets/2752551/2bdb2b4f-b85b-4487-88ae-c5c4d4716b2b)
 
 Use, make and share Developer Experiences that provision cloud infrastructure use-cases, like:
 
