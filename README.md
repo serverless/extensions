@@ -7,14 +7,15 @@ Use / make / monetize developer experiences that provision cloud use-cases, like
 - AWS Kinesis Streaming Data Pipelines
 - MongoDB Atlas Databases
 
-EXT runs Extensions. An Extension is logic for provisioning and automating a use-case, encapsulated in a container. Thanks to containerization, you can _run_ and _create_ Extensions written in any language, and compose them together via their inputs and outputs.
+EXT runs Extensions. An Extension is logic for deploying and automating a use-case, encapsulated in a container. Thanks to containerization, you can _run_ and _create_ Extensions written in any language, and compose them together via their inputs and outputs.
 
-Currently, Extensions can be configured in `ext.yml`, like this:
+Currently, Extensions are configured in `ext.yml`, like this:
 
 ```yaml
-
+# Unit of organization containing multiple Extensions
 service: my-service
 
+# An instance of an Extension
 website:
   extension: aws-s3-website@1.0.0
   input:
