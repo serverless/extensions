@@ -19,14 +19,18 @@ service: my-service
 website:
   extension: aws-s3-website@1.0.0
   input:
-    awsS3bucketName: 'website'
+    awsS3bucketName: website
 ```
 
 EXT is an evolution of "Infrastructure-as-Code", offering deployment of use-cases beyond individual cloud resources, new types of automation, and revenue sharing for all Extension makers to ensure long-term viability.
 
 EXT will be included within the upcoming [Serverless Framework V.4](https://github.com/serverless/serverless), enabling its users to run Extensions with the Framework. The purpose of this stand-alone project is to enable you to build and run Extensions today, before V.4 comes out.
   
-# Quick-Start
+# Using Extensions
+
+The EXT project currently focuses on _creating_ Extensions. A Registry is coming shortly to enhance usability. Currently, you have to publish your Extension to a container registry to use it.
+
+# Building Extensions
 
 EXT requires Docker. Install [Docker Desktop](https://www.docker.com/products/docker-desktop/),if you don't have it already.
 
@@ -36,7 +40,7 @@ Next, install the EXT CLI.
 npm i -g @serverless/ext
 ```
 
-Next, you can use the CLI to create a new extension using our typescript template.
+Use the CLI to create a new extension using our typescript template.
 
 ```
 ext developer new my-template serverless-extensions/template-typescript
