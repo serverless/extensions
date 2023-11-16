@@ -2,7 +2,7 @@
 
 
 # Overview
-Use / make / monetize developer extensions that provision cloud use-cases, like:
+Use / make / monetize developer experiences that provision cloud use-cases, like:
 
 - Static websites on AWS S3
 - Real-time data processing pipelines on AWS Kinesis
