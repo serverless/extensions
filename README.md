@@ -1,7 +1,7 @@
 
 ![ext-github-readme-1_1](https://github.com/serverless/ext/assets/2752551/1d08ffea-1e80-4a22-a745-8db00925fdab)
 
-Use, make and monetize Developer Experiences that provision cloud use-cases, like:
+Use / make / monetize developer extensions that provision cloud use-cases, like...
 
 - Static websites on AWS S3
 - Real-time data processing pipelines on AWS Kinesis
