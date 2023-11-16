@@ -10,7 +10,7 @@ Use / make / monetize developer experiences that provision cloud use-cases, like
 
 Consider EXT as a natural evolution of Infrastructure-as-Code.
 
-EXT runs **Extensions**. An Extension is logic for provisioning and automating use-cases, encapsulated in a container. Thanks to containerization, you can use and create Extensions written in any language, and compose them together via their inputs and outputs.
+EXT runs Extensions. An Extension is logic for provisioning and automating use-cases, encapsulated in a container. Thanks to containerization, you can use and create Extensions written in any language, and compose them together via their inputs and outputs.
 
 # Quick-Start
 
