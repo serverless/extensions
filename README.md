@@ -4,11 +4,11 @@
 # Overview
 Use / make / monetize developer experiences that provision cloud use-cases, like:
 
-- Static websites on AWS S3
-- Real-time data processing pipelines on AWS Kinesis
+- AWS S3 Static Websites
+- AWS Kinesis Streaming Data Pipelines
 - MongoDB Atlas Databases
 
-Consider EXT as a natural evolution of Infrastructure-as-Code.
+Consider EXT as a natural evolution of Infrastructure-as-Code, focused on larger outcomes and more automation than mere resources.
 
 EXT runs Extensions. An Extension is logic for provisioning and automating use-cases, encapsulated in a container. Thanks to containerization, you can use and create Extensions written in any language, and compose them together via their inputs and outputs.
 
