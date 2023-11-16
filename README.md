@@ -8,7 +8,7 @@ Use / make / monetize developer experiences that provision cloud use-cases, like
 - AWS Kinesis Streaming Data Pipelines
 - MongoDB Atlas Databases
 
-EXT is an evolution of "Infrastructure-as-Code", offering new types of automation, use-cases beyond individual cloud resources, and a creator economy to ensure long-term viability.
+EXT is an evolution of "Infrastructure-as-Code", offering use-cases beyond individual cloud resources, new types of automation, and a creator economy to ensure long-term viability.
 
 EXT runs Extensions. An Extension is logic for provisioning and automating use-cases, encapsulated in a container. Thanks to containerization, you can use and create Extensions written in any language, and compose them together via their inputs and outputs.
 
