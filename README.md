@@ -2,7 +2,7 @@
 
 
 # Overview
-Run / make / monetize developer experiences that provision cloud use-cases, like:
+Use / make / monetize developer experiences that provision cloud use-cases, like:
 
 - AWS S3 Static Websites
 - AWS Kinesis Streaming Data Pipelines
