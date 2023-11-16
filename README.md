@@ -2,7 +2,7 @@
 
 
 # Overview
-Use / make / monetize developer experiences that provision cloud use-cases, like:
+Run / make / monetize developer experiences that provision cloud use-cases, like:
 
 - AWS S3 Static Websites
 - AWS Kinesis Streaming Data Pipelines
@@ -10,7 +10,19 @@ Use / make / monetize developer experiences that provision cloud use-cases, like
 
 EXT is an evolution of "Infrastructure-as-Code", offering use-cases beyond individual cloud resources, new types of automation, and a creator economy to ensure long-term viability.
 
-EXT runs Extensions. An Extension is logic for provisioning and automating use-cases, encapsulated in a container. Thanks to containerization, you can use and create Extensions written in any language, and compose them together via their inputs and outputs.
+EXT runs Extensions. An Extension is logic for provisioning and automating a use-case, encapsulated in a container. Thanks to containerization, you can use and create Extensions written in any language, and compose them together via their inputs and outputs.
+
+Currently, Extensions can be configured in `ext.yml`, like this:
+
+```yaml
+
+service: my-service
+
+website:
+  extension: aws-s3-website@1.0.0
+  input:
+    
+  
 
 # Quick-Start
 
