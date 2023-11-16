@@ -1,4 +1,5 @@
-![ext-github-readme-1](https://github.com/serverless/ext/assets/2752551/2bdb2b4f-b85b-4487-88ae-c5c4d4716b2b)
+
+![ext-github-readme-1_1](https://github.com/serverless/ext/assets/2752551/1d08ffea-1e80-4a22-a745-8db00925fdab)
 
 Use, make and share Developer Experiences that provision cloud infrastructure use-cases, like:
 
