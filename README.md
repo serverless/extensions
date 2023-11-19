@@ -1,4 +1,4 @@
-![github-readme-light-v2](https://github.com/serverless/EXT/assets/2752551/94f1be3b-3504-479e-a352-8ede5bc32482)
+![github-readme-light-v2](https://github.com/serverless/EXT/assets/2752551/85d8f2c9-3ebb-4a1e-be9e-04df851f549a)
 
 
 # Overview
