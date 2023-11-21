@@ -1,0 +1,13 @@
+name: cdk-runner
+description: Run & Deploy a CDK application. Taking outputs from all stacks and putting them in the Extension Store
+input:
+  region:
+    type: string
+    default: us-east-1
+    description: The AWS Region to Deploy to
+  path:
+    type: string
+    default: ./
+    description: |
+      The path to the root of the CDK application that you wish to deploy.
+      **NOTE:** By design extensions only have access to the directory tree starting where the extension command was run from. 

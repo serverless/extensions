@@ -1,0 +1,27 @@
+{
+  "name": "cdk-runner",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "build": "esbuild --bundle src/index.ts --external:@aws-cdk/cli-lib-alpha --platform=node --outfile=dist/index.js"
+  },
+  "author": "Max Marze",
+  "license": "ISC",
+  "devDependencies": {
+    "@typescript-eslint/eslint-plugin": "^6.11.0",
+    "esbuild": "^0.19.5",
+    "eslint": "^8.53.0",
+    "eslint-config-standard-with-typescript": "^39.1.1",
+    "eslint-plugin-import": "^2.29.0",
+    "eslint-plugin-n": "^16.3.1",
+    "eslint-plugin-promise": "^6.1.1",
+    "tsx": "^4.1.4",
+    "typescript": "^5.2.2"
+  },
+  "dependencies": {
+    "@aws-cdk/cli-lib-alpha": "^2.109.0-alpha.0",
+    "@serverless/ext-utils": "^0.0.8"
+  }
+}

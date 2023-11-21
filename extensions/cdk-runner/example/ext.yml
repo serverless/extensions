@@ -1,0 +1,6 @@
+service: my-cdk-app
+
+cdk-runner-instance:
+  extension: cdk-runner@latest
+  config:
+    region: us-east-2
