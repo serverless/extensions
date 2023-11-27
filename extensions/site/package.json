@@ -1,0 +1,29 @@
+{
+  "name": "ext-site",
+  "version": "1.0.0",
+  "description": "",
+  "type": "module",
+  "main": "index.js",
+  "scripts": {},
+  "author": "",
+  "license": "",
+  "dependencies": {
+    "@aws-sdk/client-acm": "^3.449.0",
+    "@aws-sdk/client-cloudfront": "^3.449.0",
+    "@aws-sdk/client-route-53": "^3.449.0",
+    "@aws-sdk/client-s3": "^3.449.0",
+    "@serverless/ext-utils": "next",
+    "klaw-sync": "^6.0.0",
+    "mime-types": "^2.1.35",
+    "nanoid": "^5.0.3",
+    "parse-domain": "^8.0.1"
+  },
+  "devDependencies": {
+    "esbuild": "^0.19.5",
+    "eslint": "^8.53.0",
+    "eslint-config-standard": "^17.1.0",
+    "eslint-plugin-import": "^2.29.0",
+    "eslint-plugin-n": "^16.3.1",
+    "eslint-plugin-promise": "^6.1.1"
+  }
+}

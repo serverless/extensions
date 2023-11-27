@@ -1,7 +1,8 @@
-node_modules
+**/node_modules
 
 # CDK asset staging directory
 .cdk.staging
 cdk.out
-dist
-.extensions
+**/dist
+**/.extensions
+**/.DS_Store

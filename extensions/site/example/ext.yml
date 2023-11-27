@@ -1,0 +1,7 @@
+service: new-service
+
+example:
+  extension: site@latest
+  config:
+    src: ./src
+    # domain: mydomain.com # Add a custom domain connected to an AWS Route53 Hosted Zone
