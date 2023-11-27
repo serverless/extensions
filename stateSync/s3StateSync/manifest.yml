@@ -1,0 +1,11 @@
+name: s3-state-sync
+description: Sync state to S3
+input:
+  bucket:
+    type: string
+    description: The S3 Bucket to store state in
+  prefix:
+    type: string
+    default: /
+    description: |
+      The optional prefix to store state in S3 under
