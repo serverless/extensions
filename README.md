@@ -158,13 +158,11 @@ You've successfully run multiple Actions of an Extension!
 
 Now, start modifying the Extension Template. The Template is filled with useful examples and comments. Remember, after every change, you must re-build the container `npx ext developer build`. We are aware this takes a few seconds and have plans to speed this up soon.
 
-## Utils
+## Utils: Node.js & Typescript
 
 EXT uses a control plane server to orchestrate and interact with Extension containers. This architecture allows Extensions to run anywhere and be truly portable and language agnostic.
 
 Interacting with the control plane can be done manually via GRPC, but for greater ease, we're creating utility libraries you can use within your Extension.
-
-### Node.js & Typescript
 
 The first utility library is available for use in Node.js or Typescript. Install it within your Extension via:
 
@@ -172,24 +170,24 @@ The first utility library is available for use in Node.js or Typescript. Install
 npm i @serverless/ext-utils
 ```
 
-#### Logger
+### `Logger`
 - **Description**: Provides logging capabilities within the extension.
 - **Methods**:
   - `await Logger.debug(message)`: Logs a debug-level message.
   - `await Logger.info(message)`: Logs an informational message.
   - `await Logger.warning(message)`: Logs a warning message.
 
-#### GetState
+### `GetState`
 - **Description**: Retrieves the current state of the extension.
 - **Usage**: `const state = await GetState()`
 
-#### StoreState
+### `StoreState`
 - **Description**: Stores the provided state of the extension. Accepts an object. This object will overwrite all state, so be careful when passing in data via this method.
 - **Arguments**:
   - `state` (Object): The state object to be stored.
 - **Usage**: `await StoreState(state);`
 
-#### ReportExecutionResult
+### `ReportExecutionResult`
 - **Description**: Reports the result of the extension's execution.
 - **Arguments**:
   - `result` (Object): Contains the execution status and output state keys.
@@ -198,13 +196,13 @@ npm i @serverless/ext-utils
   - `result.outputStateKeys` (Array of strings): Specific State keys you wish to make available to other Extensions when the `run` Action is run, and to show up within the CLI.
 - **Usage**: `await ReportExecutionResult({ status: 0, error, outputStateKeys });`
 
-#### GetCredentials
+### `GetCredentials`
 - **Description**: Retrieves credentials for the specified vendor that are available as environment variables within your current terminal session.
 - **Arguments**:
   - `CredentialVendor` (Enum): An enum value representing the credential vendor (e.g., AWS).
 - **Usage**: `const credentials = await GetCredentials(CredentialVendor.AWS);`
 
-#### CredentialVendor
+### `CredentialVendor`
 - **Description**: Enum used in `GetCredentials` to specify the vendor for credentials.
 - **Values**: Includes vendors like `AWS`.
 
