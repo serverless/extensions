@@ -19,6 +19,6 @@
     "typescript": "^5.2.2"
   },
   "dependencies": {
-    "@serverless/ext-utils": "^0.0.2"
+    "@serverless/ext-utils": "next"
   }
 }

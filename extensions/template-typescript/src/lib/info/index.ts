@@ -6,6 +6,7 @@
  */
 
 import {
+  Logger,
   ReportExecutionResult
 } from '@serverless/ext-utils'
 

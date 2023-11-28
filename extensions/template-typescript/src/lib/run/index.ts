@@ -9,9 +9,9 @@ import {
   Logger,
   GetState,
   StoreState,
-  ReportExecutionResult,
-  GetCredentials,
-  CredentialVendor
+  ReportExecutionResult
+  // GetCredentials,
+  // CredentialVendor
 } from '@serverless/ext-utils'
 
 export default async (execData = {}): Promise<void> => {
