@@ -17,14 +17,14 @@ By default state is stored in the following prefix under your bucket, `<OPTIONAL
 service: my-test-service
 
 stateSync:
-  extension: s3-state-sync@latest
+  extension: state-aws-s3@latest
   config:
     s3Bucket: ext-remote-state-sync-testing
 ```
 
 ## Building
 
-From the `s3StateSync` directory run,
+From the `./state/aws-s3` directory run,
 
 ```
 ext developer build
