@@ -208,6 +208,6 @@ Here are the available methods:
 - **Description**: Enum used in `GetCredentials` to specify the vendor for credentials.
 - **Values**: Includes vendors like `AWS`.
 
+## Revenue Share
 
-
-
+Revenue sharing will be available upon Serverless Framework V.4 GA, planned for end of January 2024. At that time, you will be able to enroll in this.
