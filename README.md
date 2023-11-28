@@ -1,40 +1,34 @@
 ![github-readme-light-v2](https://github.com/serverless/EXT/assets/2752551/85d8f2c9-3ebb-4a1e-be9e-04df851f549a)
 
-**Update - November 28th, 2023:** This initial release of EXT is designed for Extension developers. The upcoming Serverless Framework V.4 will enable the community to utilize Extensions. Start building your Extension by reviewing the documentation and exploring the included [./extensions](./extensions). Next, we'll launch a registry for easy publishing and consumption of Extensions.
+## Update (November 28th, 2023)
+
+This is **EXT's initial release**, tailored for Extension developers. Upcoming **Serverless Framework V.4** will support using Extensions, easily. Start by exploring this documentation and the [examples](./extensions) provided. A registry for Extensions is also on the horizon for easier publishing and usage.
 
 # Overview
-Use / make / monetize developer experiences that provision cloud use-cases, like:
 
-- AWS S3 Static Websites
-- AWS Kinesis Streaming Data Pipelines
-- MongoDB Atlas Databases
+**EXT** is an innovative platform enabling developers to create, use, and monetize cloud-based developer experiences, like deploying Static Websites on AWS S3, APIs on AWS Lambda and AWS Fargate, or MongoDB Atlas Databases.
 
 EXT runs Extensions. An Extension is logic for deploying/automating a use-case, encapsulated in a container. Thanks to containerization, you can _use_ and _make_ Extensions written in any language, and compose them together via inputs and outputs.
 
-Currently, Extensions are configured in `ext.yml`, like this:
+What makes Extensions most unique is its revenue sharing model. EXT will be embedded within the upcoming [Serverless Framework V.4](https://github.com/serverless/serverless), and Serverless Inc. will share 80% of revenue generated from running your Extensions, with you. Now, you can easily distribute, monitor and monetize developer experiences to Serverless Framework's massive developer community, with less effort.
 
-```yaml
-# A Service is a unit of organization containing one or multiple Extensions
-service: my-website
+Consider EXT an evolution of "Infrastructure-as-Code", offering deployment of use-cases beyond individual cloud resources, new types of automation, and revenue sharing for all Extension makers to ensure long-term viability.
 
-# An instance of an Extension
-website:
-  # Extension
-  extension: site@1.0.0
-  # Extension global config
-  config:
-    src: ./src
+# Installation
+
+EXT requires Docker. Install [Docker Desktop](https://www.docker.com/products/docker-desktop/),if you don't have it already.
+
+Next, you currently need Node.js installed on your machine, and then you can install the EXT CLI:
+
+```
+npm i -g @serverless/ext
 ```
 
-Use the EXT CLI to run Actions on the Extensions declared, like `$ run`, `$ info`, or `$ remove`.
-
-Overall, EXT is an evolution of "Infrastructure-as-Code", offering deployment of use-cases beyond individual cloud resources, new types of automation, and revenue sharing for all Extension makers to ensure long-term viability.
-
-EXT will be packaged within the upcoming [Serverless Framework V.4](https://github.com/serverless/serverless), enabling its users to run Extensions with the Framework. The purpose of this stand-alone project is to enable you to build and run Extensions today, before SF V.4 is released.
+EXT automatically updates itself. Installing it once globally is currently recommended.
 
 # Using Extensions
 
-This guide focuses on _using_ Extensions. Please note, the EXT project currently focuses on _creating_ Extensions. A Registry and Serverless Framework V.4 are coming shortly to greatly enhance usability.
+Please note, the EXT project currently focuses on _creating_ Extensions. A Registry and Serverless Framework V.4 are coming shortly to greatly enhance usability.
 
 ## Examples
 
@@ -48,15 +42,9 @@ Clone this repository to run the example Extensions.
 git clone https://github.com/serverless/EXT
 ```
 
-## Docker
-
-Each Extension is a container, allowing you to use/make Extensions in any language and run them anywhere. As a result, Docker is required to use EXT.
-
-We recommend [installing Docker Desktop](https://www.docker.com/products/docker-desktop/) to get started with Docker, if you don't have it installed already.
-
 ## Building
 
-Currently, you must build Extensions locally via Docker before you can use them, or specify an Extension container within a container registry (e.g. Docker Hub). This will change with our upcoming Extensions Registry.
+Currently, you must build each Extension locally via Docker before you can use it, or specify an Extension container within a container registry (e.g. Docker Hub). This will change with our upcoming Extensions Registry.
 
 If you have an Extension locally, within its root, run the `ext developer build` command to build the container image and make it available locally. Here is how that can be done using the `site` Extension within the [./extensions](./extensions):
 
@@ -104,17 +92,15 @@ ext info
 ext remove
 ```
 
-# Building Extensions
+# Making Extensions
 
-EXT requires Docker. Install [Docker Desktop](https://www.docker.com/products/docker-desktop/),if you don't have it already.
+Here is how to quickly get started _making_ Extensions.
 
-Next, install the EXT CLI.
+## Templates
 
-```
-npm i -g @serverless/ext
-```
+Extension Templates are ready to build and run, out-of-the-box. We recommend starting with our [Typescript Template](https://github.com/serverless-extensions/template-typescript). We have more templates coming soon for other languages.
 
-Use the CLI to create a new extension using our typescript template.
+Use the CLI to create a new extension using our [Typescript Template](https://github.com/serverless-extensions/template-typescript).
 
 ```
 ext developer new my-template serverless-extensions/template-typescript
@@ -127,46 +113,46 @@ cd my-template
 npm i
 ```
 
-To run the EXT CLI, during this initial release, you must use `npx` from within the template project. Try it:
+Check out the Extension Template's code to get a quick sense of what an Extension looks like.
 
-```
-ext
-```
+## Building
 
-You're ready to start building and running your first Extension!
-
-Check out the Extension Template's code to get a quick sense of what an Extension looks like. At a high level, they are just groups of scripts, that can easily store state, print nicely formatted logs, and return with clear success or failure.
-
-Extension Templates are ready to build and run, out-of-the-box. First, you must build the container the Template includes. If you look in the Dockerfile, you can see the build steps that happen as you do this:
+Templates are ready to run out-of-the-box, but first you must build the Extension container. Run this command within the root of the Extension to build it:
 
 ```
 ext developer build
 ```
 
-Within the Extension Template is an `example` folder containing a `serverless.yml`. This is a Service, where Instances of Extensions are declared and configured. If you want to run or test Extensions, this is the required file.
+## Configuring
 
-The Extension Template already has a single Instance of this Extension specified. So, try creating an Instance of the Extension you just built, and running it. This will go show off the example logic within the Template:
+When making an Extension, it requires a `manifest.yml` file, which declares the name and required configuration for the Extension. Create and adjust this to your requirements.
+
+When using an Extension, it must be specified within an `ext.yml` file. This file is a Service, where Instances of Extensions are declared and configured, to be run together.
+
+## Actions
+
+The [Typescript Template](https://github.com/serverless-extensions/template-typescript) contains an `example` folder containing an `ext.yml` which is ready to run. This will go show off the example logic within the Template:
 
 ```
 cd example
 ext run
 ```
 
-Every Extension has Actions (e.g. commands). `run` is the only default/required Action for an Extension.
+Every Extension has Actions (e.g. commands). `run` is the only default/required Action for an Extension. When running the [Typescript Template](https://github.com/serverless-extensions/template-typescript) it should save some state when its run.
 
-Extensions should also come with an `info` Action, which shows essential State. Run it:
+Extensions should also come with an `info` Action, which shows essential State. The [Typescript Template](https://github.com/serverless-extensions/template-typescript) should display essential state saved after `run` when `info` is run:
 
 ```
 ext info
 ```
 
-Lastly, Extensions (if provisioning something) should come with a `remove` Action. Run it:
+Lastly, Extensions (if provisioning something) should come with a `remove` Action.
 
 ```
 ext remove
 ```
 
-Verify State was removed. You should see `undefined` values:
+The [Typescript Template](https://github.com/serverless-extensions/template-typescript) should remove the saved state after `remove` is run. Verify State was removed via `info`. You should see `undefined` values:
 
 ```
 ext info
@@ -175,3 +161,21 @@ ext info
 You've successfully run multiple Actions of an Extension!
 
 Now, start modifying the Extension Template. The Template is filled with useful examples and comments. Remember, after every change, you must re-build the container `npx ext developer build`. We are aware this takes a few seconds and have plans to speed this up soon.
+
+## Utils
+
+EXT uses a control plane server to orchestrate and interact with Extension containers. This architecture allows Extensions to run anywhere and be truly portable and language agnostic.
+
+Interacting with the control plane can be done manually via GRPC, but for greater ease, we're creating utility libraries you can use within your Extension.
+
+### Node.js & Typescript
+
+The first utility library is available for use in Node.js or Typescript.
+
+You can install it within your Extension via:
+
+```
+npm i @serverless/ext-utils
+```
+
+
