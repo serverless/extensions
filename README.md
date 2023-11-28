@@ -170,6 +170,8 @@ The first utility library is available for use in Node.js or Typescript. Install
 npm i @serverless/ext-utils
 ```
 
+Here are the available methods:
+
 ### `Logger`
 - **Description**: Provides logging capabilities within the extension.
 - **Methods**:
