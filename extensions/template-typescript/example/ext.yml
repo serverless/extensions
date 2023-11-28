@@ -1,7 +1,7 @@
 service: new-service
 
 new-extension-instance:
-  # Set the extension name and version based on what's in the manifest.yml
+  # Set the extension name and version based on what's in the extension.yml
   extension: template-typescript@latest
   # Configure the extension instance
   config:

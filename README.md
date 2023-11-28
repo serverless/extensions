@@ -57,7 +57,7 @@ ext developer build
 
 In `ext.yml`, you can create an Instance of the Extension you wish to use (assuming you've built it locally).
 
-The name of the Extension is specified within the `manifest.yml` located in the root of each Extension. The global configuration options are also specified within that file. If you're familiar with Javascript, this global config is alike arguments passed into the constructor of a class.
+The name of the Extension is specified within the `extension.yml` located in the root of each Extension. The global configuration options are also specified within that file. If you're familiar with Javascript, this global config is alike arguments passed into the constructor of a class.
 
 An Instance of an Extension can be declared and configured like this:
 
@@ -121,7 +121,7 @@ ext developer build
 
 ## Configuring
 
-When making an Extension, it requires a `manifest.yml` file, which declares the name and required configuration for the Extension. Create and adjust this to your requirements.
+When making an Extension, it requires a `extension.yml` file, which declares the name and required configuration for the Extension. Create and adjust this to your requirements.
 
 When using an Extension, it must be specified within an `ext.yml` file. This file is a Service, where Instances of Extensions are declared and configured, to be run together.
 
