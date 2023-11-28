@@ -6,7 +6,7 @@ This is **EXT's initial release**, tailored for Extension developers. Upcoming *
 
 # Overview
 
-**EXT** is an innovative platform enabling developers to create, use, and monetize cloud-based developer experiences, like deploying Static Websites on AWS S3, APIs on AWS Lambda and AWS Fargate, or MongoDB Atlas Databases.
+**EXT** is an innovative platform enabling developers to create, use, and monetize cloud-based infrastructure-as-code and general developer experiences, like deploying Static Websites on AWS S3, APIs on AWS Lambda and AWS Fargate, or MongoDB Atlas Databases.
 
 EXT runs Extensions. An Extension is logic for deploying/automating a use-case, encapsulated in a container. Thanks to containerization, you can _use_ and _make_ Extensions written in any language, and compose them together via inputs and outputs.
 
@@ -98,15 +98,11 @@ Here is how to quickly get started _making_ Extensions.
 
 ## Templates
 
-Extension Templates are ready to build and run, out-of-the-box. We recommend starting with our [Typescript Template](https://github.com/serverless-extensions/template-typescript). We have more templates coming soon for other languages.
+Extension Templates are ready to build and run, out-of-the-box. We recommend starting with our [Typescript Template](./extensions/template-typescript). We have more templates coming soon for other languages.
 
-Use the CLI to create a new extension using our [Typescript Template](https://github.com/serverless-extensions/template-typescript).
+Clone this repository to start using the Typescript Template.
 
-```
-ext developer new my-template serverless-extensions/template-typescript
-```
-
-Your new extension will now be available at `./my-template`, go ahead and install the dependencies
+Next, `cd` into it and install the dependencies:
 
 ```
 cd my-template
@@ -131,16 +127,16 @@ When using an Extension, it must be specified within an `ext.yml` file. This fil
 
 ## Actions
 
-The [Typescript Template](https://github.com/serverless-extensions/template-typescript) contains an `example` folder containing an `ext.yml` which is ready to run. This will go show off the example logic within the Template:
+The [Typescript Template](./extensions/template-typescript) contains an `example` folder containing an `ext.yml` which is ready to run. This will go show off the example logic within the Template:
 
 ```
 cd example
 ext run
 ```
 
-Every Extension has Actions (e.g. commands). `run` is the only default/required Action for an Extension. When running the [Typescript Template](https://github.com/serverless-extensions/template-typescript) it should save some state when its run.
+Every Extension has Actions (e.g. commands). `run` is the only default/required Action for an Extension. When running the [Typescript Template](./extensions/template-typescript) it should save some state when its run.
 
-Extensions should also come with an `info` Action, which shows essential State. The [Typescript Template](https://github.com/serverless-extensions/template-typescript) should display essential state saved after `run` when `info` is run:
+Extensions should also come with an `info` Action, which shows essential State. The [Typescript Template](./extensions/template-typescript) should display essential state saved after `run` when `info` is run:
 
 ```
 ext info
@@ -152,7 +148,7 @@ Lastly, Extensions (if provisioning something) should come with a `remove` Actio
 ext remove
 ```
 
-The [Typescript Template](https://github.com/serverless-extensions/template-typescript) should remove the saved state after `remove` is run. Verify State was removed via `info`. You should see `undefined` values:
+The [Typescript Template](./extensions/template-typescript) should remove the saved state after `remove` is run. Verify State was removed via `info`. You should see `undefined` values:
 
 ```
 ext info

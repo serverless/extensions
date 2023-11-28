@@ -1,3 +1,0 @@
-[submodule "extensions/template-typescript"]
-	path = extensions/template-typescript
-	url = https://github.com/serverless-extensions/template-typescript
