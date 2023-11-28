@@ -166,12 +166,48 @@ Interacting with the control plane can be done manually via GRPC, but for greate
 
 ### Node.js & Typescript
 
-The first utility library is available for use in Node.js or Typescript.
-
-You can install it within your Extension via:
+The first utility library is available for use in Node.js or Typescript. Install it within your Extension via:
 
 ```
 npm i @serverless/ext-utils
 ```
+
+#### Logger
+- **Description**: Provides logging capabilities within the extension.
+- **Methods**:
+  - `await Logger.debug(message)`: Logs a debug-level message.
+  - `await Logger.info(message)`: Logs an informational message.
+  - `await Logger.warning(message)`: Logs a warning message.
+
+### GetState
+- **Description**: Retrieves the current state of the extension.
+- **Usage**: `const state = await GetState()`
+
+### StoreState
+- **Description**: Stores the provided state of the extension. Accepts an object. This object will overwrite all state, so be careful when passing in data via this method.
+- **Arguments**:
+  - `state` (Object): The state object to be stored.
+- **Usage**: `await StoreState(state);`
+
+### ReportExecutionResult
+- **Description**: Reports the result of the extension's execution.
+- **Arguments**:
+  - `result` (Object): Contains the execution status and output state keys.
+  - `result.status` (Number): `0` for success and `1` for failure. This will print a clear failure within the CLI, along with the error.
+  - `result.error` (Error Object): Optional. Will only be used if `result.status` is `1`.
+  - `result.outputStateKeys` (Array of strings): Specific State keys you wish to make available to other Extensions when the `run` Action is run, and to show up within the CLI.
+- **Usage**: `await ReportExecutionResult({ status: 0, error, outputStateKeys });`
+
+### GetCredentials
+- **Description**: Retrieves credentials for the specified vendor that are available as environment variables within your current terminal session.
+- **Arguments**:
+  - `CredentialVendor` (Enum): An enum value representing the credential vendor (e.g., AWS).
+- **Usage**: `const credentials = await GetCredentials(CredentialVendor.AWS);`
+
+### CredentialVendor
+- **Description**: Enum used in `GetCredentials` to specify the vendor for credentials.
+- **Values**: Includes vendors like `AWS`.
+
+
 
 
