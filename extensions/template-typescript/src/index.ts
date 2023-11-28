@@ -9,7 +9,7 @@
 import {
   run,
   info,
-  remove,
+  remove
 } from './lib'
 import {
   Logger,
@@ -54,10 +54,9 @@ const exec = async (): Promise<void> => {
  * Execute the Extension and handle errors
  */
 exec().catch(async (error) => {
-    await Logger.info(error)
-    await ReportExecutionResult({
-      status: 1, // 1 is for failure
-      error
-    })
+  await Logger.info(error)
+  await ReportExecutionResult({
+    status: 1, // 1 is for failure
+    error
   })
-  
+})

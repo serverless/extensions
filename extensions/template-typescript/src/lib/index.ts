@@ -5,5 +5,5 @@ import remove from './remove'
 export {
   run,
   info,
-  remove,
+  remove
 }

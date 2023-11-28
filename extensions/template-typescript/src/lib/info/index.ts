@@ -6,11 +6,10 @@
  */
 
 import {
-  ReportExecutionResult,
+  ReportExecutionResult
 } from '@serverless/ext-utils'
 
 export default async (execData = {}): Promise<void> => {
-
   // Example: Debug statement
   await Logger.debug('Running the "info" action')
 
