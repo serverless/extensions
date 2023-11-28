@@ -1,7 +1,7 @@
 name: state-aws-s3
 description: Sync EXT state to AWS S3
 
-input:
+config:
   bucket:
     type: string
     description: The S3 Bucket to store state in
