@@ -5,7 +5,6 @@
  * It is best used for deploying a use-case or running a script.
  */
 
-import fs from 'fs'
 import {
   Logger,
   GetState,
