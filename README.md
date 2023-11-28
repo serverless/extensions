@@ -2,15 +2,15 @@
 
 ## Update (November 28th, 2023)
 
-This is **EXT's initial release**, tailored for Extension developers. Upcoming **Serverless Framework V.4** will support using Extensions, easily. Start by exploring this documentation and the [examples](./extensions) provided. A registry for Extensions is also on the horizon for easier publishing and usage.
+**This is EXT's initial release**, tailored for Extension developers. Upcoming **Serverless Framework V.4** will support using Extensions more easily. Start by exploring this documentation and the [examples](./extensions) provided. A registry for Extensions is also on the horizon for easier publishing and usage.
 
 # Overview
 
 **EXT** is an innovative platform enabling developers to create, use, and monetize cloud-based infrastructure-as-code and general developer experiences, like deploying Static Websites on AWS S3, APIs on AWS Lambda and AWS Fargate, or MongoDB Atlas Databases.
 
-EXT runs Extensions. An Extension is logic for deploying/automating a use-case, encapsulated in a container. Thanks to containerization, you can _use_ and _make_ Extensions written in any language, and compose them together via inputs and outputs.
+EXT runs **Extensions**. An Extension is logic for deploying/automating a use-case, encapsulated in a container. Thanks to containerization, you can use Extensions anywhere, make them in any language, and compose them together via inputs and outputs.
 
-What makes Extensions most unique is its revenue sharing model. EXT will be embedded within the upcoming [Serverless Framework V.4](https://github.com/serverless/serverless), and Serverless Inc. will share 80% of revenue generated from running your Extensions, with you. Now, you can easily distribute, monitor and monetize developer experiences to Serverless Framework's massive developer community, with less effort.
+Most notably, Extensions feature a revenue sharing model. EXT will be embedded within the upcoming [Serverless Framework V.4](https://github.com/serverless/serverless), and Serverless Inc. will share 80% of revenue generated from running your Extensions, with you. Now, you can easily distribute, monitor and monetize developer experiences to Serverless Framework's massive developer community, with less effort.
 
 Consider EXT an evolution of "Infrastructure-as-Code", offering deployment of use-cases beyond individual cloud resources, new types of automation, and revenue sharing for all Extension makers to ensure long-term viability.
 
