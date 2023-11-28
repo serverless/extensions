@@ -14,14 +14,16 @@ EXT runs Extensions. An Extension is logic for deploying/automating a use-case, 
 Currently, Extensions are configured in `ext.yml`, like this:
 
 ```yaml
-# Unit of organization containing multiple Extensions
-service: my-service
+# A Service is a unit of organization containing one or multiple Extensions
+service: my-website
 
 # An instance of an Extension
 website:
-  extension: aws-s3-website@1.0.0
-  input:
-    awsS3bucketName: website
+  # Extension
+  extension: site@1.0.0
+  # Extension global config
+  config:
+    src: ./src
 ```
 
 Use the EXT CLI to run Actions on the Extensions declared, like `$ run`, `$ info`, or `$ remove`.
@@ -34,25 +36,25 @@ EXT will be packaged within the upcoming [Serverless Framework V.4](https://gith
 
 This guide focuses on _using_ Extensions. Please note, the EXT project currently focuses on _creating_ Extensions. A Registry and Serverless Framework V.4 are coming shortly to greatly enhance usability.
 
-## Running Examples
+## Examples
 
 The quickest way to try Extensions is to use some of the examples in [./extensions](./extensions).
 
 Each Extension in [./extensions](./extensions) contains an `./example` folder that includes an `ext.yml` file. This file declares an Instance of the example Extension, with default configuration, ready to deploy.
 
-Clone this repository to start running the example Extensions.
+Clone this repository to run the example Extensions.
 
 ```
 git clone https://github.com/serverless/EXT
 ```
 
-## Docker Requirement
+## Docker
 
 Each Extension is a container, allowing you to use/make Extensions in any language and run them anywhere. As a result, Docker is required to use EXT.
 
 We recommend [installing Docker Desktop](https://www.docker.com/products/docker-desktop/) to get started with Docker, if you don't have it installed already.
 
-## Building Extensions
+## Building
 
 Currently, you must build Extensions locally via Docker before you can use them, or specify an Extension container within a container registry (e.g. Docker Hub). This will change with our upcoming Extensions Registry.
 
@@ -63,12 +65,44 @@ cd extensions/site
 ext developer build
 ```
 
+## Configuring
 
+In `ext.yml`, you can create an Instance of the Extension you wish to use (assuming you've built it locally).
 
+The name of the Extension is specified within the `manifest.yml` located in the root of each Extension. The global configuration options are also specified within that file. If you're familiar with Javascript, this global config is alike arguments passed into the constructor of a class.
 
+An Instance of an Extension can be declared and configured like this:
 
+```yaml
+# A Service is a unit of organization containing one or multiple Extensions
+service: my-website
 
+# An instance of an Extension
+website:
+  # Extension
+  extension: site@1.0.0
+  # Extension global config
+  config:
+    src: ./src
+```
 
+## Credentials
+
+For providing credentials Extensions may use, EXT can pick up environment variables set in your current terminal session and inject them into Extension containers. Currently, only credentials for AWS are supported. Request other credentials within the issues section of this repository.
+
+## Actions
+
+Each Extension comes with Actions which are functions that can be run to perform various types of automation within the Extension, like deployments, removals, etc.
+
+The `run` Action is required by every Extension. Also common is the `info` Action, which reports useful state information and the `remove` Action, which removes infrastructure or anything deployed/created by the Extension.
+
+Use the EXT CLI to perform Actions, like this:
+
+```
+ext run
+ext info
+ext remove
+```
 
 # Building Extensions
 
