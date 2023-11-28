@@ -2,7 +2,7 @@
 
 ## Update (November 28th, 2023)
 
-**This is EXT's initial release**, tailored for Extension developers. Upcoming **Serverless Framework V.4** will support using Extensions more easily. Start by exploring this documentation and the [examples](./extensions) provided. A registry for Extensions is also on the horizon for easier publishing and usage.
+**This is EXT's initial release**, tailored for Extension developers. Upcoming **Serverless Framework V.4** will support using Extensions more easily. Start making your own Extensions by exploring this documentation and the [examples](./extensions) provided. A registry for Extensions is also on the horizon for easier publishing and usage.
 
 # Overview
 
@@ -24,11 +24,11 @@ Next, you currently need Node.js installed on your machine, and then you can ins
 npm i -g @serverless/ext
 ```
 
-EXT automatically updates itself. Installing it once globally is currently recommended.
+EXT automatically updates itself. We recommend installing it once, globally.
 
 # Using Extensions
 
-Please note, the EXT project currently focuses on _creating_ Extensions. A Registry and Serverless Framework V.4 are coming shortly to greatly enhance usability.
+Here is how to run Extensions. Please note, the EXT project currently focuses on _creating_ Extensions. A Registry and Serverless Framework V.4 integration are coming shortly to greatly enhance usability.
 
 ## Examples
 
