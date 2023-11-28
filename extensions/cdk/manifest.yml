@@ -1,4 +1,4 @@
-name: cdk-runner
+name: cdk
 description: Run & Deploy a CDK application. Taking outputs from all stacks and putting them in the Extension Store
 input:
   region:

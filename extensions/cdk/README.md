@@ -1,4 +1,4 @@
-# CDK Runner Extension
+# CDK Extension
 
 This extension will allow you to deploy a CDK application using EXT. Right now this extension only supports deploying Javascript and Typescript based CDK applications.
 
@@ -9,9 +9,9 @@ This extension will allow you to deploy a CDK application using EXT. Right now t
 | path | no | ./ | The Path to the CDK application, relative to your `ext.yaml` file |
 | region | no | us-east-1 | The AWS region to run the CDK application against |
 
-## Custom Commands
+## Custom Actions
 
-| Command | Description |
+| Action | Description |
 | ------- | ----------- |
 | bootstrap | Run CDK bootstrap |
 
@@ -20,8 +20,8 @@ This extension will allow you to deploy a CDK application using EXT. Right now t
 ```yaml
 service: my-cdk-app
 
-cdk-runner-instance:
-  extension: cdk-runner@latest
+cdk-instance:
+  extension: cdk@latest
   config:
     region: us-east-2
 ```
@@ -40,7 +40,7 @@ If you want to test this extension you can use the example provided in this repo
 
 1. `cd example`
 2. `npm i`
-3. If this is your first time using CDK in a given account you will want to run the bootstrap command `ext cdk-runner-instance bootstrap` otherwise skip that step.
+3. If this is your first time using CDK in a given account you will want to run the bootstrap Action `ext cdk-instance bootstrap` otherwise skip that step.
 4. `ext run` This will deploy a CDK example stack with single SQS queue and an output of the queue URL
 5. Run `ext info` and you can confirm that your queue URL is stored in the EXT state store
 6. Finally if you run `ext remove` you will see your CDK application removed
