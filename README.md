@@ -179,17 +179,17 @@ npm i @serverless/ext-utils
   - `await Logger.info(message)`: Logs an informational message.
   - `await Logger.warning(message)`: Logs a warning message.
 
-### GetState
+#### GetState
 - **Description**: Retrieves the current state of the extension.
 - **Usage**: `const state = await GetState()`
 
-### StoreState
+#### StoreState
 - **Description**: Stores the provided state of the extension. Accepts an object. This object will overwrite all state, so be careful when passing in data via this method.
 - **Arguments**:
   - `state` (Object): The state object to be stored.
 - **Usage**: `await StoreState(state);`
 
-### ReportExecutionResult
+#### ReportExecutionResult
 - **Description**: Reports the result of the extension's execution.
 - **Arguments**:
   - `result` (Object): Contains the execution status and output state keys.
@@ -198,13 +198,13 @@ npm i @serverless/ext-utils
   - `result.outputStateKeys` (Array of strings): Specific State keys you wish to make available to other Extensions when the `run` Action is run, and to show up within the CLI.
 - **Usage**: `await ReportExecutionResult({ status: 0, error, outputStateKeys });`
 
-### GetCredentials
+#### GetCredentials
 - **Description**: Retrieves credentials for the specified vendor that are available as environment variables within your current terminal session.
 - **Arguments**:
   - `CredentialVendor` (Enum): An enum value representing the credential vendor (e.g., AWS).
 - **Usage**: `const credentials = await GetCredentials(CredentialVendor.AWS);`
 
-### CredentialVendor
+#### CredentialVendor
 - **Description**: Enum used in `GetCredentials` to specify the vendor for credentials.
 - **Values**: Includes vendors like `AWS`.
 
