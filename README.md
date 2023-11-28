@@ -194,7 +194,7 @@ npm i @serverless/ext-utils
   - `result.status` (Number): `0` for success and `1` for failure. This will print a clear failure within the CLI, along with the error.
   - `result.error` (Error Object): Optional. Will only be used if `result.status` is `1`.
   - `result.outputStateKeys` (Array of strings): Specific State keys you wish to make available to other Extensions when the `run` Action is run, and to show up within the CLI.
-- **Usage**: `await ReportExecutionResult({ status: 0, error, outputStateKeys });`
+- **Usage**: `await ReportExecutionResult({ status: 0, error, outputStateKeys: ['foo', 'bar', 'fizz.buzz'] });`
 
 ### `GetCredentials`
 - **Description**: Retrieves credentials for the specified vendor that are available as environment variables within your current terminal session.
