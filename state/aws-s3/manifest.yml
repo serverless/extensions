@@ -1,5 +1,6 @@
-name: s3-state-sync
-description: Sync state to S3
+name: state-aws-s3
+description: Sync EXT state to AWS S3
+
 input:
   bucket:
     type: string
