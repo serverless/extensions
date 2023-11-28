@@ -8,13 +8,23 @@ This EXT Extension streamlines static website deployment and hosting on AWS, off
 * **Rapid Deployment**: Experience swift deployments of your entire website or frontend, typically within approximately 2 seconds, subject to the number of files and your internet connection speed.
 * **Secure SSL Integration**: Automatically deploy and configure a complimentary SSL certificate for your custom domain through AWS ACM, ensuring secure connections.
 
+## Credentials
+
+This Extension requires the following AWS Credentials specified as environment variables within the terminal session you are working in:
+
+| Credential | Description |
+| ------- | ------- |
+| AWS_ACCESS_KEY_ID | Your AWS Access Key ID. |
+| AWS_SECRET_ACCESS_KEY | Your AWS Secret Access Key. |
+| AWS_SESSION_TOKEN | An optional AWS Session token |
+
 ## Configuration
 
 | Option | Required | Default | Description |
 | ------ | -------- | ------- | ----------- |
 | src | no | null | The relative path to the source code of your website. This will likely either be `./src` or `./dist` if you build your website. |
-| domain | no | null | A custom domain to configure with your website. This can be in Route53 or on an external registrar. Learn more by reading the section on custom domains. |
-| aws.region | no | null | The region you want your site deployed to. Please note that some resources must be created in us-east-1, like your AWS ACM SSL Certificate |
+| domain | no | null | The domain name to be automatically configurd for your static site. This domain can be registered within AWS Route53 or via an external registar. Domains on an external registrar must be configured to use the AWS Route53's Hosted Zone nameservers. This Extension will create the Hosted Zone and export the nameservers to use for your domain. |
+| aws.region | no | null | The region you want your site deployed to. Please note that some resources must be created in us-east-1, like your AWS ACM SSL Certificate. |
 | aws.s3BucketName | no | null | A custom name for the AWS S3 bucket. Please note that it is recommended to name your bucket as your domain. If you enter a `domain` as part of your configuration, that will be used as the bucket name (this is highly recommended). Otherwise, without a custom name, a randomly generated name will be created. |
 
 ## Actions

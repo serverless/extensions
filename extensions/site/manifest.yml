@@ -1,5 +1,15 @@
-name: aws-s3-website
+name: site
 config:
-  awsS3BucketName:
+  src:
     type: string
-    description: The name of the AWS S3 Bucket to create
+    description: The relative path to the source code of your website. This will likely either be `./src` or `./dist` if you build your website.
+  domain:
+    type: string
+    description: The domain name to be automatically configurd for your static site. This domain can be registered within AWS Route53 or via an external registar. Domains on an external registrar must be configured to use the AWS Route53's Hosted Zone nameservers. This Extension will create the Hosted Zone and export the nameservers to use for your domain.
+  aws:
+    region:
+      type: string
+      description: The region you want your site deployed to. Please note that some resources must be created in us-east-1, like your AWS ACM SSL Certificate.
+    s3BucketName:
+      type: string
+      description: A custom name for the AWS S3 bucket. Please note that it is recommended to name your bucket as your domain. If you enter a `domain` as part of your configuration, that will be used as the bucket name (this is highly recommended given bucket names are impossible to change later). Otherwise, without a custom name, a randomly generated name will be created.
