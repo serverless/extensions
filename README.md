@@ -211,3 +211,5 @@ Here are the available methods:
 ## Revenue Share
 
 Revenue sharing will be available upon Serverless Framework V.4 GA, planned for end of January 2024. At that time, you will be able to enroll in this.
+
+Serverless Framework users will be charged per Instance of your Extension used. Extensions will initially have a fixed price. However, custom Extension pricing is planned for later 2024.
