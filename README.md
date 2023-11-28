@@ -1,5 +1,6 @@
 ![github-readme-light-v2](https://github.com/serverless/EXT/assets/2752551/85d8f2c9-3ebb-4a1e-be9e-04df851f549a)
 
+**Update - November 28th, 2023:** This initial release of EXT is designed for Extension developers. The upcoming Serverless Framework V.4 will enable the community to utilize Extensions. Start building your Extension by reviewing the documentation and exploring the included [./extensions](./extensions). Next, we'll launch a registry for easy publishing and consumption of Extensions.
 
 # Overview
 Use / make / monetize developer experiences that provision cloud use-cases, like:
@@ -8,7 +9,7 @@ Use / make / monetize developer experiences that provision cloud use-cases, like
 - AWS Kinesis Streaming Data Pipelines
 - MongoDB Atlas Databases
 
-EXT runs Extensions. An Extension is logic for deploying and automating a use-case, encapsulated in a container. Thanks to containerization, you can _run_ and _create_ Extensions written in any language, and compose them together via their inputs and outputs.
+EXT runs Extensions. An Extension is logic for deploying/automating a use-case, encapsulated in a container. Thanks to containerization, you can _use_ and _make_ Extensions written in any language, and compose them together via inputs and outputs.
 
 Currently, Extensions are configured in `ext.yml`, like this:
 
@@ -23,13 +24,51 @@ website:
     awsS3bucketName: website
 ```
 
-EXT is an evolution of "Infrastructure-as-Code", offering deployment of use-cases beyond individual cloud resources, new types of automation, and revenue sharing for all Extension makers to ensure long-term viability.
+Use the EXT CLI to run Actions on the Extensions declared, like `$ run`, `$ info`, or `$ remove`.
 
-EXT will be included within the upcoming [Serverless Framework V.4](https://github.com/serverless/serverless), enabling its users to run Extensions with the Framework. The purpose of this stand-alone project is to enable you to build and run Extensions today, before V.4 comes out.
-  
+Overall, EXT is an evolution of "Infrastructure-as-Code", offering deployment of use-cases beyond individual cloud resources, new types of automation, and revenue sharing for all Extension makers to ensure long-term viability.
+
+EXT will be packaged within the upcoming [Serverless Framework V.4](https://github.com/serverless/serverless), enabling its users to run Extensions with the Framework. The purpose of this stand-alone project is to enable you to build and run Extensions today, before SF V.4 is released.
+
 # Using Extensions
 
-The EXT project currently focuses on _creating_ Extensions. A Registry is coming shortly to enhance usability. Currently, you have to publish your Extension to a container registry to use it.
+This guide focuses on _using_ Extensions. Please note, the EXT project currently focuses on _creating_ Extensions. A Registry and Serverless Framework V.4 are coming shortly to greatly enhance usability.
+
+## Running Examples
+
+The quickest way to try Extensions is to use some of the examples in [./extensions](./extensions).
+
+Each Extension in [./extensions](./extensions) contains an `./example` folder that includes an `ext.yml` file. This file declares an Instance of the example Extension, with default configuration, ready to deploy.
+
+Clone this repository to start running the example Extensions.
+
+```
+git clone https://github.com/serverless/EXT
+```
+
+## Docker Requirement
+
+Each Extension is a container, allowing you to use/make Extensions in any language and run them anywhere. As a result, Docker is required to use EXT.
+
+We recommend [installing Docker Desktop](https://www.docker.com/products/docker-desktop/) to get started with Docker, if you don't have it installed already.
+
+## Building Extensions
+
+Currently, you must build Extensions locally via Docker before you can use them, or specify an Extension container within a container registry (e.g. Docker Hub). This will change with our upcoming Extensions Registry.
+
+If you have an Extension locally, within its root, run the `ext developer build` command to build the container image and make it available locally. Here is how that can be done using the `site` Extension within the [./extensions](./extensions):
+
+```
+cd extensions/site
+ext developer build
+```
+
+
+
+
+
+
+
 
 # Building Extensions
 
