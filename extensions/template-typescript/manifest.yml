@@ -1,0 +1,6 @@
+name: template-typescript
+
+config:
+  name:
+    type: string
+    description: The name argument
