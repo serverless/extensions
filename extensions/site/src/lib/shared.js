@@ -1,7 +1,7 @@
 import {
   S3,
   GetBucketWebsiteCommand,
-  HeadBucketCommand,
+  GetBucketLocationCommand,
   CreateBucketCommand,
   ListObjectsCommand,
   PutObjectCommand,
@@ -41,6 +41,7 @@ import klawSync from 'klaw-sync'
 import mime from 'mime-types'
 import { parseDomain, fromUrl } from 'parse-domain'
 import { customAlphabet } from 'nanoid'
+import { emitKeypressEvents } from 'readline'
 
 const sleep = async (wait) => {
   await new Promise((resolve) => setTimeout(resolve, wait))
@@ -108,7 +109,7 @@ const getAwsSdkClients = (credentials = {}, region) => {
  * @param state
  * @returns
  */
-const getConfig = ({
+const resolveConfig = ({
   instanceName = null,
   config = {},
   state = {}
@@ -208,12 +209,22 @@ const getConfig = ({
  * @returns
  */
 const createS3Bucket = async (clients, Bucket) => {
+  await clients.s3.send(new CreateBucketCommand({ Bucket }))
+}
+
+/**
+ * Check if AWS S3 Bucket exists
+ * @param {*} clients
+ * @param {*} Bucket
+ * @returns {boolean} - true if exists, false otherwise
+ */
+const checkBucketExists = async (clients, Bucket) => {
   try {
-    await clients.s3.send(new HeadBucketCommand({ Bucket }))
+    await clients.s3.send(new GetBucketLocationCommand({ Bucket }))
+    return true
   } catch (e) {
     if (e.name === 'NotFound' || e.name === 'NoSuchBucket') {
-      await sleep(2000)
-      await createS3Bucket(clients, Bucket); return
+      return false
     }
     throw e
   }
@@ -222,25 +233,12 @@ const createS3Bucket = async (clients, Bucket) => {
 /**
  * Find or create AWS S3 Bucket
  * @param {*} clients
- * @param {*} awsS3BucketName
+ * @param {*} Bucket
  */
-const findOrCreateS3Bucket = async (clients, awsS3BucketName) => {
-  try {
-    // log(`Checking if bucket ${awsS3BucketName} exists.`)
-    await clients.s3.send(new HeadBucketCommand({ Bucket: awsS3BucketName }))
-  } catch (e) {
-    if (e.name === 'NotFound') {
-      //   log(`Bucket ${awsS3BucketName} does not exist. Creating...`)
-      await clients.s3.send(new CreateBucketCommand({ Bucket: awsS3BucketName }))
-      //   log(`Bucket ${awsS3BucketName} created. Confirming it's ready...`)
-      await createS3Bucket(clients, awsS3BucketName)
-    } else if (e.name === 'Forbidden' && e.message === null) {
-      throw new Error('Forbidden: Invalid credentials or this AWS S3 bucket name may already be taken')
-    } else if (e.name === 'Forbidden') {
-      throw new Error(`Bucket name "${awsS3BucketName}" is already taken.`)
-    } else {
-      throw e
-    }
+const findOrCreateS3Bucket = async (clients, Bucket) => {
+  const exists = await checkBucketExists(clients, Bucket)
+  if (!exists) {
+    await createS3Bucket(clients, Bucket)
   }
 }
 
@@ -1010,7 +1008,7 @@ const deleteS3Bucket = async (clients, bucketName) => {
 
 export {
   getAwsSdkClients,
-  getConfig,
+  resolveConfig,
   findOrCreateS3Bucket,
   configureAwsS3BucketForHosting,
   uploadDir,

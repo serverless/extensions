@@ -1,5 +1,5 @@
 /**
- * Extension: Website
+ * Extension: Site
  */
 
 import {

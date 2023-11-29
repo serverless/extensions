@@ -63,7 +63,7 @@ export default async (execData = {}) => {
   }
 
   // Invalidate and Delete CloudFront Distribution
-  await Logger.debug('Disabling and Deleting CloudFront Distribution. This will take a few minutes...')
+  await Logger.info('Disabling and Deleting CloudFront Distribution. This will take a few minutes...')
   await deleteCloudFrontDistribution(clients, state.aws.cloudfrontDistributionId)
 
   // Empty and Delete S3 Bucket

@@ -14,7 +14,7 @@ import {
   CredentialVendor
 } from '@serverless/ext-utils'
 import {
-  getConfig,
+  resolveConfig,
   getAwsSdkClients,
   findOrCreateS3Bucket,
   configureAwsS3BucketForHosting,
@@ -38,17 +38,20 @@ export default async (execData = {}) => {
 
   // Get credentials
   const credentials = await GetCredentials(CredentialVendor.AWS)
+  await Logger.debug(`Credentials: ${JSON.stringify(Object.keys(credentials))}`)
 
   // Get state
   const state = await GetState() || {}
   state.aws = state.aws ?? {}
+  await Logger.debug(`State: ${JSON.stringify(state)}`)
 
   // Merge config for update
-  const config = getConfig({
+  const config = resolveConfig({
     instanceName: execData.instanceName,
     config: execData.config,
     state
   })
+  await Logger.debug(`Resolved Config: ${JSON.stringify(config)}`)
 
   // Get AWS SDK Clients
   const clients = getAwsSdkClients(credentials, config.aws.region)
@@ -60,7 +63,7 @@ export default async (execData = {}) => {
   /**
    * Find or create AWS S3 bucket
    */
-  await Logger.debug('Finding or creating AWS S3 bucket')
+  await Logger.debug(`Finding or creating AWS S3 bucket: "${config.aws.s3BucketName}"`)
   await findOrCreateS3Bucket(clients, config.aws.s3BucketName)
   state.aws.s3BucketName = config.aws.s3BucketName
   await StoreState(state)
