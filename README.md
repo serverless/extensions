@@ -3,7 +3,9 @@
 
 ## Update (November 28th, 2023)
 
-**This is EXT's initial release**, tailored for Extension developers. Upcoming **Serverless Framework V.4** will support using Extensions more easily. Start making your own Extensions by exploring this documentation and the [examples](./extensions) provided. A registry for Extensions is also on the horizon for easier publishing and usage.
+Upcoming **Serverless Framework V.4** will support Extensions, which enable new use-cases in the Framework. This initial release of the EXT project helps you build Extensions today. To start, explore the docs and [examples](./extensions) provided. A registry for Extensions is also on the horizon for easier publishing and usage.
+
+🎥  [Video Overview](https://youtu.be/nTQUwghvy5Q)
 
 # Overview
 
