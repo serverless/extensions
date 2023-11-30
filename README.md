@@ -7,7 +7,7 @@ Upcoming **Serverless Framework V.4** will support Extensions, which enable new 
 
 # Overview
 
-🎥  [Video Overview](https://youtu.be/nTQUwghvy5Q)
+🎥  [Video Overview](https://youtu.be/jBIIKpUUxBs)
 
 **EXT** is an innovative platform enabling developers to create, use, and monetize cloud-based infrastructure-as-code and general developer experiences, like deploying Static Websites on AWS S3, APIs on AWS Lambda and AWS Fargate, or MongoDB Atlas Databases.
 
