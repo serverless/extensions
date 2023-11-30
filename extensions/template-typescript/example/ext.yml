@@ -1,3 +1,4 @@
+# org: your-serverless-framework-dashboard-org-name (app.serverless.com)
 service: new-service
 
 new-extension-instance:
