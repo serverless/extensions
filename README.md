@@ -1,9 +1,9 @@
 ![github-readme-2-dark](https://github.com/serverless/EXT/assets/2752551/e1cf5026-63e0-4569-a5f3-c3e70caa325e)
 
 
-## Update (November 28th, 2023)
+## Update (November 30th, 2023)
 
-Upcoming **Serverless Framework V.4** will support Extensions, which enable new use-cases in the Framework. This initial release of the EXT project helps you build Extensions today. To start, explore the docs and [examples](./extensions) provided. A registry for Extensions is also on the horizon for easier publishing and usage.
+Upcoming Serverless Framework V.4 will support **Extensions**, which enable new use-cases in the Framework. This initial release of the EXT project helps you build Extensions today. To start, explore the docs, [examples](./extensions) and [Typescript Template](./extensions/template-typescript). A registry for Extensions is also on the horizon for easier publishing and usage.
 
 # Overview
 
