@@ -5,9 +5,9 @@
 
 Upcoming **Serverless Framework V.4** will support Extensions, which enable new use-cases in the Framework. This initial release of the EXT project helps you build Extensions today. To start, explore the docs and [examples](./extensions) provided. A registry for Extensions is also on the horizon for easier publishing and usage.
 
-🎥  [Video Overview](https://youtu.be/nTQUwghvy5Q)
-
 # Overview
+
+🎥  [Video Overview](https://youtu.be/nTQUwghvy5Q)
 
 **EXT** is an innovative platform enabling developers to create, use, and monetize cloud-based infrastructure-as-code and general developer experiences, like deploying Static Websites on AWS S3, APIs on AWS Lambda and AWS Fargate, or MongoDB Atlas Databases.
 
