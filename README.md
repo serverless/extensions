@@ -193,6 +193,17 @@ ext run --verbose
 ext run -v
 ```
 
+## Building Docker Containers in Extensions
+
+It is possible to use docker from within an extension. It is not enabled by default though, for an extension to be able to use docker it must have the appropriate permissions added in the `extension.yml`. Add the following to your `extension.yml`,
+
+```yaml
+permissions:
+  - docker-build
+```
+
+This tells the `EXT` CLI to start your extension with the approriate permissions and settings to allow docker builds to be enabled. The typescript template includes a custom action, `docker-build`, that you can use to see the functionality. Since all of the docker commands executed in your extension are done on your host machine, your extension's `Dockerfile` only needs to ensure it installs the docker CLI, you do not need the entire docker engine package. If you are using an alpine based image like in the typescript template, you should be able to add `RUN apk add docker-cli-buildx` and then commands will just work.
+
 ## Utils: Node.js & Typescript
 
 EXT uses a control plane server to orchestrate and interact with Extension containers. This architecture allows Extensions to run anywhere and be truly portable and language agnostic.
