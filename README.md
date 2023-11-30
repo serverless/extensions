@@ -99,6 +99,15 @@ ext info
 ext remove
 ```
 
+### Verbose
+
+The output of EXT is minimal by default. If you want to see what your Extensions are doing under the hood, use the `--verbose` flag.
+
+```
+ext run --verbose
+ext run -v
+```
+
 # Making Extensions
 
 Here is how to quickly get started _making_ Extensions.
@@ -165,6 +174,25 @@ You've successfully run multiple Actions of an Extension!
 
 Now, start modifying the Extension Template. The Template is filled with useful examples and comments. Remember, after every change, you must re-build the container `npx ext developer build`. We are aware this takes a few seconds and have plans to speed this up soon.
 
+## Debugging
+
+The output of EXT is minimal by default. However, we recommend you include `await Logger.debug()` statements throughout each Action, so that you and users of your Extensions can use the `--verbose` flag to better understand what's happening or where something might be going wrong.
+
+For example, doing this before a cloud resource operation is done:
+
+```
+// In your "run" action
+
+await Logger.debug('Creating AWS S3 bucket')
+```
+
+Then, add the verbose flag: 
+
+```
+ext run --verbose
+ext run -v
+```
+
 ## Utils: Node.js & Typescript
 
 EXT uses a control plane server to orchestrate and interact with Extension containers. This architecture allows Extensions to run anywhere and be truly portable and language agnostic.
@@ -182,7 +210,7 @@ Here are the available methods:
 ### `Logger`
 - **Description**: Provides logging capabilities within the extension.
 - **Methods**:
-  - `await Logger.debug(message)`: Logs a debug-level message.
+  - `await Logger.debug(message)`: Logs a debug-level message. These are only shown if you use a `--verbose | -v` flag when calling your Extension Action, like `ext run -v`
   - `await Logger.info(message)`: Logs an informational message.
   - `await Logger.warning(message)`: Logs a warning message.
 
