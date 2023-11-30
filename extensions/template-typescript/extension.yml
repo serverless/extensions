@@ -1,5 +1,8 @@
 name: template-typescript
 
+permissions:
+  - docker-build
+
 config:
   name:
     type: string

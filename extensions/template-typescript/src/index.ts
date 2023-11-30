@@ -9,7 +9,8 @@
 import {
   run,
   info,
-  remove
+  remove,
+  dockerBuild
 } from './lib'
 import {
   Logger,
@@ -44,6 +45,9 @@ const exec = async (): Promise<void> => {
       break
     case 'remove':
       await remove(execData)
+      break
+    case 'docker-build':
+      await dockerBuild(execData)
       break
     default:
       throw new Error(`Unknown action: ${execData.action}`)

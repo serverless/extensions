@@ -1,9 +1,9 @@
 # Use a slim version of node that is compatible with the project
-FROM node:20-slim as builder
+FROM node:20-alpine as builder
 
 # Update the package list and install unzip and zip
-RUN apt-get update && apt-get install -y unzip zip
-
+# RUN apt-get update && apt-get install -y unzip zip
+RUN apk add docker-cli-buildx
 # Set the working directory to /app
 WORKDIR /app
 
