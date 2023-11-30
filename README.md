@@ -1,4 +1,5 @@
-![github-readme-light-v2](https://github.com/serverless/EXT/assets/2752551/85d8f2c9-3ebb-4a1e-be9e-04df851f549a)
+![github-readme-2-dark](https://github.com/serverless/EXT/assets/2752551/e1cf5026-63e0-4569-a5f3-c3e70caa325e)
+
 
 ## Update (November 28th, 2023)
 
