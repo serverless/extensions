@@ -3,11 +3,15 @@
 
 ## Update (November 30th, 2023)
 
-Upcoming Serverless Framework V.4 will support **Extensions**, which enable new use-cases in the Framework. This initial release of the EXT project helps you build Extensions today. To start, explore the docs, [examples](./extensions) and [Typescript Template](./extensions/template-typescript). A registry for Extensions is also on the horizon for easier publishing and usage.
+Upcoming Serverless Framework V.4 will introduce **Extensions**, which enable new use-cases in the Framework. This initial release of the EXT project helps you build Extensions today. To start, explore the docs, [examples](./extensions) and [Typescript Template](./extensions/template-typescript). A registry for Extensions is also on the horizon for easier publishing and usage.
 
 # Overview
 
-🎥  [Video Overview](https://youtu.be/jBIIKpUUxBs)
+<p align="center">
+  <a href="https://youtu.be/jBIIKpUUxBs">
+    <img src="https://github.com/serverless/EXT/assets/2752551/c2c5dff7-2a58-427c-8b4e-cf3ab9a8cf34" width="400" style="max-width: 100%; height: auto;">
+  </a>
+</p>
 
 **EXT** is an innovative platform enabling developers to create, use, and monetize cloud-based infrastructure-as-code and general developer experiences, like deploying Static Websites on AWS S3, APIs on AWS Lambda and AWS Fargate, or MongoDB Atlas Databases.
 
