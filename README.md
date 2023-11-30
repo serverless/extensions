@@ -27,7 +27,7 @@ EXT requires Docker. Install [Docker Desktop](https://www.docker.com/products/do
 
 Next, you currently need Node.js installed on your machine, and then you can install the EXT CLI:
 
-```
+```bash
 npm i -g @serverless/ext
 ```
 
@@ -45,7 +45,7 @@ Each Extension in [./extensions](./extensions) contains an `./example` folder th
 
 Clone this repository to run the example Extensions.
 
-```
+```bash
 git clone https://github.com/serverless/EXT
 ```
 
@@ -55,7 +55,7 @@ Currently, you must build each Extension locally via Docker before you can use i
 
 If you have an Extension locally, within its root, run the `ext developer build` command to build the container image and make it available locally. Here is how that can be done using the `site` Extension within the [./extensions](./extensions):
 
-```
+```bash
 cd extensions/site
 ext developer build
 ```
@@ -93,7 +93,7 @@ The `run` Action is required by every Extension. Also common is the `info` Actio
 
 Use the EXT CLI to perform Actions, like this:
 
-```
+```bash
 ext run
 ext info
 ext remove
@@ -103,7 +103,7 @@ ext remove
 
 The output of EXT is minimal by default. If you want to see what your Extensions are doing under the hood, use the `--verbose` flag.
 
-```
+```bash
 ext run --verbose
 ext run -v
 ```
@@ -120,7 +120,7 @@ Clone this repository to start using the Typescript Template.
 
 Next, `cd` into it and install the dependencies:
 
-```
+```bash
 cd my-template
 npm i
 ```
@@ -131,7 +131,7 @@ Check out the Extension Template's code to get a quick sense of what an Extensio
 
 Templates are ready to run out-of-the-box, but first you must build the Extension container. Run this command within the root of the Extension to build it:
 
-```
+```bash
 ext developer build
 ```
 
@@ -145,7 +145,7 @@ When using an Extension, it must be specified within an `ext.yml` file. This fil
 
 The [Typescript Template](./extensions/template-typescript) contains an `example` folder containing an `ext.yml` which is ready to run. This will go show off the example logic within the Template:
 
-```
+```bash
 cd example
 ext run
 ```
@@ -154,19 +154,19 @@ Every Extension has Actions (e.g. commands). `run` is the only default/required 
 
 Extensions should also come with an `info` Action, which shows essential State. The [Typescript Template](./extensions/template-typescript) should display essential state saved after `run` when `info` is run:
 
-```
+```bash
 ext info
 ```
 
 Lastly, Extensions (if provisioning something) should come with a `remove` Action.
 
-```
+```bash
 ext remove
 ```
 
 The [Typescript Template](./extensions/template-typescript) should remove the saved state after `remove` is run. Verify State was removed via `info`. You should see `undefined` values:
 
-```
+```bash
 ext info
 ```
 
@@ -180,7 +180,7 @@ The output of EXT is minimal by default. However, we recommend you include `awai
 
 For example, doing this before a cloud resource operation is done:
 
-```
+```javascript
 // In your "run" action
 
 await Logger.debug('Creating AWS S3 bucket')
@@ -188,7 +188,7 @@ await Logger.debug('Creating AWS S3 bucket')
 
 Then, add the verbose flag: 
 
-```
+```bash
 ext run --verbose
 ext run -v
 ```
@@ -212,7 +212,7 @@ Interacting with the control plane can be done manually via GRPC, but for greate
 
 The first utility library is available for use in Node.js or Typescript. Install it within your Extension via:
 
-```
+```bash
 npm i @serverless/ext-utils
 ```
 
