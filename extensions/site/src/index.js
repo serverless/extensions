@@ -23,7 +23,7 @@ const exec = async () => {
   await Logger.debug(execData)
 
   // Route the Extension Action
-  switch (execData.action) {
+  switch (execData.action[0]) {
     case 'run':
       await run(execData)
       break

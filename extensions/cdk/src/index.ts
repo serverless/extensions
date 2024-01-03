@@ -4,7 +4,7 @@ import { readFile, rm } from 'fs/promises'
 
 interface ExtensionInput {
   instanceName: string
-  action: string
+  action: string[]
   config: { path?: string, region?: string }
 }
 
@@ -66,13 +66,14 @@ const run = async (): Promise<void> => {
 
   await GetCredentials(CredentialVendor.AWS)
 
-  if (input.action === 'info') {
+  const action = input.action[0];
+  if (action === 'info') {
     await info(input)
-  } else if (input.action === 'run') {
+  } else if (action === 'run') {
     await deploy(input)
-  } else if (input.action === 'remove') {
+  } else if (action === 'remove') {
     await remove(input)
-  } else if (input.action === 'bootstrap') {
+  } else if (action === 'bootstrap') {
     await bootstrap(input)
   }
 
