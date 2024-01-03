@@ -6,7 +6,10 @@ import path from 'path'
 
 const Input = z.object({
   serviceName: z.string(),
-  action: z.enum(['start', 'finish']),
+  action: z.union([
+    z.array(z.literal("start")),
+    z.array(z.literal("finish"))
+  ]),
   config: z.object({
     bucket: z.string(),
     prefix: z.string().optional()
@@ -28,7 +31,8 @@ try {
 
   const remoteStateKey = `${input.config.prefix !== undefined ? `${input.config.prefix}/` : ''}${input.serviceName}/state.json`
 
-  if (input.action === 'start') {
+  const action = input.action[0];
+  if (action === 'start') {
     await Logger.debug('Syncing State to Local Store')
     try {
       const response = await s3Client.send(new GetObjectCommand({
@@ -43,7 +47,7 @@ try {
     } catch (err) {
       await Logger.debug(err)
     }
-  } else if (input.action === 'finish') {
+  } else if (action === 'finish') {
     await Logger.debug('Syncing State to S3')
     try {
       const currentRemoteStateResponse = await s3Client.send(new GetObjectCommand({
