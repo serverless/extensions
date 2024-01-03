@@ -19,7 +19,7 @@ import {
 
 interface ExtensionExecutionData {
   instanceName: string
-  action: string
+  action: string[]
   config: {
     name: string
   }
@@ -35,8 +35,7 @@ const exec = async (): Promise<void> => {
   await Logger.debug(`Initializing the "${execData.action}" action`)
   await Logger.debug(execData)
 
-  // Route the Extension Action
-  switch (execData.action) {
+    switch (execData.action[0]) {
     case 'run':
       await run(execData)
       break
