@@ -1,0 +1,9 @@
+name: message-publisher
+description: Publish an SQS message
+config:
+  variableToPrint:
+    type: string
+    description: The variable to print
+commands:
+  - command: publish-message <content>
+    description: Publish an SQS test message to an SQS queue whose URL is in the extension state

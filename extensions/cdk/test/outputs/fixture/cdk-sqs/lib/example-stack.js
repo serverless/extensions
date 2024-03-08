@@ -19,13 +19,13 @@ class ExampleStack extends Stack {
     })
 
     // eslint-disable-next-line @typescript-eslint/no-unused-vars
-    const queueUrlOutput = new CfnOutput(this, 'queueUrl', {
+    const queueUrlOutput = new CfnOutput(this, 'QueueUrl', {
       value: queue.queueUrl
     })
 
     // eslint-disable-next-line @typescript-eslint/no-unused-vars
-    const customOutput = new CfnOutput(this, 'customOutput', {
-      value: 'customOutputValue',
+    const customOutput = new CfnOutput(this, 'CustomOutput', {
+      value: 'cdk-sqs-custom-output-value',
       description: 'This is a custom output'
     })
   }
