@@ -1,18 +1,17 @@
 /**
- * Extension Template: TypeScript
+ * Extension Template: Docker Build
  *
  * This Extension is ready to be built and run out-of-the-box.
- * It features lots of useful utilities and examples
- * to help you get started.
+ * It serves as a demonstration for using Docker within an EXT extension.
  */
 
-import { customCommand, info, remove, run } from './lib'
+import { info, remove, run } from './lib'
 import { ExecutionStatus, Logger, ReportExecutionResult } from '@serverless/ext-utils'
 
 // The configuration for the Extension that is specified in the extension.yml file.
 // This is the configuration that the user will provide when they use the Extension.
 export interface Config {
-  confirm: boolean
+  name: string
 }
 
 // The data that is passed to the Extension when it is executed.
@@ -22,19 +21,6 @@ export interface ExtensionExecutionData {
   instanceName: string
   action: string[]
   config: Config
-}
-
-// The state schema for the Extension.
-export interface State {
-  foo: string
-  nestedObject: {
-    fizz: string
-  }
-  nestedArray: string[]
-  user: {
-    name: string
-    age: string
-  }
 }
 
 /**
@@ -50,9 +36,7 @@ const exec = async (): Promise<void> => {
   await Logger.debug(`Initializing the "${execData.action.join(' ')}" action`)
   await Logger.debug(execData)
 
-  // Perform the action that was specified in the execution data.
-  // Instead of using a switch statement, you can also use more sophisticated routing logic
-  // by using a library for handling the CLI commands like yargs.
+  // Perform the action that was specified in the execution data
   switch (execData.action[0]) {
     case 'run':
       await run(execData)
@@ -62,9 +46,6 @@ const exec = async (): Promise<void> => {
       break
     case 'remove':
       await remove(execData)
-      break
-    case 'custom-command':
-      await customCommand(execData)
       break
     default:
       throw new Error(`Unknown action: "${execData.action.join(' ')}"`)

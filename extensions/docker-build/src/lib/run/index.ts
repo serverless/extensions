@@ -1,26 +1,24 @@
 /**
- * Extension Action: Docker Build
+ * Extension Action: Run
  *
- * This builds a Dockerfile.
+ * This is the default action for your extension.
+ * It is best used for deploying a use-case or running a script.
  */
 
 import {
+  ExecutionStatus,
   Logger,
   ReportExecutionResult
 } from '@serverless/ext-utils'
-import { execSync, spawn } from 'child_process'
+import { spawn } from 'child_process'
+import { type ExtensionExecutionData } from '../../index'
 
-export default async (execData: any = {}): Promise<void> => {
-  await Logger.info('Running Docker Build')
+export default async (execData: ExtensionExecutionData): Promise<void> => {
+  await Logger.debug('Running the "run" action')
 
-  const res = execSync('docker version')
+  const tag = execData?.config?.name !== undefined ? (execData.config.name).replace(/\W/, '-') : 'build-in-docker-test'
 
-  const data = res.toString()
-
-  await Logger.info(data)
-
-  const tag = execData?.config?.name !== undefined ? (execData.config.name as string).replace(/\W/, '-') : 'build-in-docker-test'
-
+  // Thanks to docker-build permission added to extension.yml, the extension has the permission to run docker commands.
   const buildProcess = spawn('docker', ['build', '-f', '/workspace/Dockerfile', '-t', tag, '/workspace'])
 
   await new Promise<void>((resolve, reject) => {
@@ -48,6 +46,6 @@ export default async (execData: any = {}): Promise<void> => {
   })
 
   await ReportExecutionResult({
-    status: 0
+    status: ExecutionStatus.SUCCESSFUL
   })
 }

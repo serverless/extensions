@@ -1,0 +1,13 @@
+# The name of the extension. This is what users will use to reference the extension in their serverless.yml
+name: template-docker-build
+
+# The permissions that the extension needs
+permissions:
+  - docker-build # allows the extension to use Docker in the execution environment
+
+# The configuration that the extension accepts.
+# Users can provide these values in the `config` block of the extension instance in their serverless.yml
+config:
+  name:
+    type: string
+    description: The name of the Docker image to build

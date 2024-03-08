@@ -1,0 +1,9 @@
+# org: your-serverless-framework-dashboard-org-name (app.serverless.com)
+service: new-service
+
+extension-instance:
+  # Set the extension name and version based on what's in the extension.yml
+  extension: template-typescript@latest
+  # Configure the extension instance
+  config:
+    confirm: true

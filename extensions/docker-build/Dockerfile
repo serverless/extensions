@@ -3,6 +3,9 @@
 # Use a slim version of node that is compatible with the project
 FROM node:20-alpine as builder
 
+# Include the Docker CLI Buildx
+RUN apk add docker-cli-buildx
+
 # Set the working directory to /app
 WORKDIR /app
 

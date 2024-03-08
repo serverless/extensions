@@ -5,24 +5,20 @@
  * resources created by your Extension.
  */
 
-import {
-  Logger,
-  StoreState,
-  ReportExecutionResult
-} from '@serverless/ext-utils'
+import { ExecutionStatus, Logger, ReportExecutionResult, StoreState } from '@serverless/ext-utils'
+import { type ExtensionExecutionData } from '../../index'
 
-export default async (execData = {}): Promise<void> => {
-  // Example: Debug statement
+export default async (execData: ExtensionExecutionData): Promise<void> => {
   await Logger.debug('Running the "remove" action')
 
-  // Example: Delete State
+  // The StoreState utility function is used to store the state of the extension.
+  // If the state has to be cleared, pass an empty object to StoreState.
   await StoreState({})
 
   await Logger.info('Instance Removed Successfully')
 
-  // Example: Reporting Execution Result
   await ReportExecutionResult({
-    status: 0, // 0 = Success, 1 = Failure
+    status: ExecutionStatus.SUCCESSFUL, // The status of the execution
     outputStateKeys: [] // State keys to include in the CLI output
   })
 }

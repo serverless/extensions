@@ -23,7 +23,7 @@ try {
   if (process.argv.length < 3) {
     throw new Error('Input was not provided')
   }
-  const input = Input.parse(JSON.parse(process.argv[2]))
+  const input: Input = Input.parse(JSON.parse(process.argv[2]))
 
   await GetCredentials(CredentialVendor.AWS)
 
@@ -51,7 +51,7 @@ try {
     await Logger.debug('Syncing State to S3')
     try {
       const currentRemoteStateResponse = await s3Client.send(new GetObjectCommand({
-        Bucket: input.config.s3Bucket,
+        Bucket: input.config.bucket,
         Key: remoteStateKey
       }))
       if (currentRemoteStateResponse.Body !== undefined) {
@@ -59,7 +59,7 @@ try {
         const body = await currentRemoteStateResponse.Body.transformToString()
         const versionedFileName = `state-${(new Date()).getTime()}.json`
         await s3Client.send(new PutObjectCommand({
-          Bucket: input.config.s3Bucket,
+          Bucket: input.config.bucket,
           Key: remoteStateKey.replace('state.json', versionedFileName),
           Body: body
         }))
@@ -70,7 +70,7 @@ try {
 
     const localState = await readFile(path.join('workspace', '.extensions', 'state.json'))
     await s3Client.send(new PutObjectCommand({
-      Bucket: input.config.s3Bucket,
+      Bucket: input.config.bucket,
       Key: remoteStateKey,
       Body: localState
     }))
