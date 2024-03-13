@@ -10,4 +10,11 @@ config:
     default: ./
     description: |
       The path to the root of the CDK application that you wish to deploy.
-      **NOTE:** By design extensions only have access to the directory tree starting where the extension command was run from. 
+      **NOTE:** By design extensions only have access to the directory tree starting where the extension command was run from.
+commands:
+  - command: bootstrap
+    description: Bootstrap the CDK application
+  - command: synth
+    description: Synthesize the CDK application
+  - command: list
+    description: List the stacks in the CDK application

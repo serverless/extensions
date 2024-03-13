@@ -1,5 +1,13 @@
-import { AwsCdkCli, RequireApproval } from '@aws-cdk/cli-lib-alpha'
-import { CredentialVendor, ExecutionStatus, GetCredentials, GetState, Logger, ReportExecutionResult, StoreState } from '@serverless/ext-utils'
+import { AwsCdkCli, RequireApproval, StackActivityProgress } from '@aws-cdk/cli-lib-alpha'
+import {
+  CredentialVendor,
+  ExecutionStatus,
+  GetCredentials,
+  GetState,
+  Logger,
+  ReportExecutionResult,
+  StoreState
+} from '@serverless/ext-utils'
 import { readFile, rm } from 'fs/promises'
 
 interface ExtensionInput {
@@ -21,12 +29,31 @@ const bootstrap = async (input: ExtensionInput): Promise<void> => {
   await Logger.info('Finished Bootstrapping CDK')
 }
 
+const synth = async (input: ExtensionInput): Promise<void> => {
+  await Logger.info('Synthesizing CDK App')
+  const basePath = input.config.path !== undefined ? `/workspace${input.config.path}` : '/workspace'
+  const cli = AwsCdkCli.fromCdkAppDirectory(basePath, { output: '/tmp' })
+
+  await cli.synth()
+  await Logger.info('Finished Synthesizing CDK App')
+}
+
+const list = async (input: ExtensionInput): Promise<void> => {
+  await Logger.info('Listing CDK Stacks')
+  const basePath = input.config.path !== undefined ? `/workspace${input.config.path}` : '/workspace'
+  const cli = AwsCdkCli.fromCdkAppDirectory(basePath, { output: '/tmp' })
+  await cli.list({ long: true })
+  await Logger.info('Listed CDK Stacks')
+}
+
 const remove = async (input: ExtensionInput): Promise<void> => {
   await Logger.info('Removing CDK Stack')
-  const cli = AwsCdkCli.fromCdkAppDirectory('/workspace', { output: '/tmp' })
+  const basePath = input.config.path !== undefined ? `/workspace${input.config.path}` : '/workspace'
+  const cli = AwsCdkCli.fromCdkAppDirectory(basePath, { output: '/tmp' })
 
   await cli.destroy({
-    requireApproval: false
+    requireApproval: false,
+    color: false
   })
 
   await StoreState({})
@@ -41,7 +68,8 @@ const deploy = async (input: ExtensionInput): Promise<void> => {
   const outputsFile = `${basePath}/outputs-${input.instanceName}.jsonn`
   await cli.deploy({
     requireApproval: RequireApproval.NEVER,
-    outputsFile
+    outputsFile,
+    progress: StackActivityProgress.EVENTS
   })
 
   const state = JSON.parse((await readFile(outputsFile)).toString('utf-8'))
@@ -63,10 +91,40 @@ const run = async (): Promise<void> => {
   if (input.config.region !== undefined) {
     process.env.AWS_REGION = input.config.region
   }
+  process.env.CDK_DISABLE_VERSION_CHECK = '1'
 
   await GetCredentials(CredentialVendor.AWS)
 
-  const action = input.action[0];
+  process.stdout.write = ((write) => (...args) => {
+    // Dispatch the asynchronous logging operation without waiting for it to complete.
+    Logger.info(args[0].toString()).catch(error => {
+      console.error('Logger failed:', error)
+    })
+    // Call the original process.stdout.write method and return its result
+    // This return value is important for stream backpressure management
+    // @ts-expect-error - Bypassing TypeScript check because the overridden function
+    // needs to accept a flexible number of arguments to handle all overloads of process.stdout.write.
+    // The original .apply() method ensures the correct passing of arguments, but TypeScript
+    // struggles with the dynamic argument types and counts here. We ensure at runtime that
+    // the arguments align with the standard Node.js write() method signatures.
+    return write.apply(process.stdout, args)
+  })(process.stdout.write)
+
+  process.stderr.write = ((write) => (...args) => {
+    // Dispatch the asynchronous logging operation without waiting for it to complete.
+    Logger.info(args[0].toString()).catch(error => {
+      console.error('Logger failed:', error)
+    })
+    // Call the original process.stderr.write method to ensure output also goes to the console
+    // @ts-expect-error - Bypassing TypeScript check because the overridden function
+    // needs to accept a flexible number of arguments to handle all overloads of process.stderr.write.
+    // The original .apply() method ensures the correct passing of arguments, but TypeScript
+    // struggles with the dynamic argument types and counts here. We ensure at runtime that
+    // the arguments align with the standard Node.js write() method signatures.
+    return write.apply(process.stderr, args)
+  })(process.stderr.write)
+
+  const action = input.action[0]
   if (action === 'info') {
     await info(input)
   } else if (action === 'run') {
@@ -75,14 +133,19 @@ const run = async (): Promise<void> => {
     await remove(input)
   } else if (action === 'bootstrap') {
     await bootstrap(input)
+  } else if (action === 'synth') {
+    await synth(input)
+  } else if (action === 'list') {
+    await list(input)
   }
 
   await ReportExecutionResult({
-    status: ExecutionStatus.SUCCESSFUL,
+    status: ExecutionStatus.SUCCESSFUL
   })
 }
 
-run().then(() => {}).catch(async (err) => {
+run().then(() => {
+}).catch(async (err) => {
   const error = err as Error
   await ReportExecutionResult({
     status: ExecutionStatus.FAILED,

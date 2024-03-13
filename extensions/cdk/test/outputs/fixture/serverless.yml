@@ -1,0 +1,14 @@
+# org: your-serverless-framework-dashboard-org-name (app.serverless.com)
+service: my-service
+
+cdk-sqs:
+  extension: cdk@latest
+  config:
+    region: us-east-2
+    path: /cdk-sqs
+
+message-publisher:
+  extension: message-publisher@latest
+  config:
+    region: us-east-2
+    queueUrl: ${output:cdk-sqs.ExampleStack.QueueUrl}

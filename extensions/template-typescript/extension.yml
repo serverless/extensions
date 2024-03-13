@@ -1,9 +1,20 @@
+# The name of the extension. This is what users will use to reference the extension in their serverless.yml
 name: template-typescript
 
+# The permissions that the extension needs
 permissions:
-  - docker-build
+  - docker-build # allows the extension to build Docker images
 
+# The configuration that the extension accepts.
+# Users can provide these values in the `config` block of the extension instance in their serverless.yml
 config:
-  name:
-    type: string
-    description: The name argument
+  confirm:
+    type: boolean
+    description: Require confirmation before saving the user response
+
+# The commands that the extension provides.
+# These are the commands that users can run in their terminal to interact with the extension.
+# For example, if the extension provides a `foo` command, users can run `serverless ext foo` to run the command.
+commands:
+- command: custom-command <name>
+  description: A custom command example

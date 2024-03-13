@@ -3,7 +3,7 @@ service: new-service
 
 new-extension-instance:
   # Set the extension name and version based on what's in the extension.yml
-  extension: template-typescript@latest
+  extension: template-docker-build@latest
   # Configure the extension instance
   config:
-    name: new-extension-instance
+    name: my-new-image
