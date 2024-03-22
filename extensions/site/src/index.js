@@ -3,7 +3,7 @@
  */
 
 import {
-  run,
+  deploy,
   info,
   remove
 } from './lib/index.js'
@@ -24,8 +24,8 @@ const exec = async () => {
 
   // Route the Extension Action
   switch (execData.action[0]) {
-    case 'run':
-      await run(execData)
+    case 'deploy':
+      await deploy(execData)
       break
     case 'info':
       await info(execData)
