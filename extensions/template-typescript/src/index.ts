@@ -6,7 +6,7 @@
  * to help you get started.
  */
 
-import { customCommand, info, remove, run } from './lib'
+import { customCommand, info, remove, deploy } from './lib'
 import { ExecutionStatus, Logger, ReportExecutionResult } from '@serverless/ext-utils'
 
 // The configuration for the Extension that is specified in the extension.yml file.
@@ -54,8 +54,8 @@ const exec = async (): Promise<void> => {
   // Instead of using a switch statement, you can also use more sophisticated routing logic
   // by using a library for handling the CLI commands like yargs.
   switch (execData.action[0]) {
-    case 'run':
-      await run(execData)
+    case 'deploy':
+      await deploy(execData)
       break
     case 'info':
       await info(execData)

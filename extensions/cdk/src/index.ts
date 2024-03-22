@@ -127,7 +127,7 @@ const run = async (): Promise<void> => {
   const action = input.action[0]
   if (action === 'info') {
     await info(input)
-  } else if (action === 'run') {
+  } else if (action === 'deploy') {
     await deploy(input)
   } else if (action === 'remove') {
     await remove(input)
